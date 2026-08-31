@@ -1,0 +1,8 @@
+/* Eliminar margenes por defecto */
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding : 20px
+}
