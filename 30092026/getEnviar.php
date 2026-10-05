@@ -1,5 +1,6 @@
 <?php 
 include ('db.php');
+
 if($_SERVER['REQUEST_METHOD']=== 'GET'){
 //nombre
 $nombre =$_GET['nombre'];
