@@ -15,6 +15,7 @@
 </head>
 <body>
     <h1>Listar</h1>
+    <a href="./create.php">Crear registro</a>
     <table border="1" >
         <tr>
             <th>ID</th>

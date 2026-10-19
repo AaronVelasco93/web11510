@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <a href="./index.php"><h1>Inicio</h1></a>
     <form action="getEnviar.php" method="GET">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre"> <br><br>
