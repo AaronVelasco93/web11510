@@ -1,6 +1,6 @@
 <?php 
 require_once __DIR__ . "/../config/db.php";
-$consulta="SELECT * FROM alumnos ORDER BY id DESC";
+$consulta="SELECT id, nombre, email, created_at  FROM alumnos ORDER BY id DESC";
 // Ejecucion
 $stmt = $pdo->query($consulta);
 $alumnos=$stmt->fetchAll();
@@ -29,7 +29,22 @@ $alumnos=$stmt->fetchAll();
             </tr>
         </thead>
         <tbody>
-            
+        <?php if(count($alumnos) === 0):?>
+            <tr><td>No tenemos registros</td></tr>     
+        <?php else: ?>
+            <?php foreach($alumnos as $a):?>
+            <tr>
+                <td><?= htmlspecialchars($a['id'])?></td>
+                <td><?= htmlspecialchars($a['nombre']) ?></td>
+                <td><?= htmlspecialchars($a['email']) ?></td>
+                <td><?= htmlspecialchars($a['created_at']) ?></td>
+                <td>
+                    <a href="edit.php?id=<?= htmlspecialchars($a['id'])?>">Editar</a>
+                    <a href="delete.php?id=<?= htmlspecialchars($a['id'])?>" onclick=" return confirm('¿Quires eliminar el registro?');">Eliminar</a>
+                </td>               
+            </tr>
+            <?php endforeach;?>
+        <?php endif; ?>
         </tbody>
     </table>
 </body>
