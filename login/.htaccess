@@ -1,0 +1,5 @@
+Options -Indexes
+RedirectMatch 404 "(?!)/\.git(?:/|$)"
+<FilesMatch "^(\.env(?:\..*)?|\.git.*|.*\.md)$">
+    Require all denied
+</filesMatch>
