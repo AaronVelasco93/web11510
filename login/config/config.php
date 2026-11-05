@@ -12,6 +12,7 @@ if( $variables === false){
 
 $leer = static function (string $clave) use ($variables):string{
     
+return $valor;
 };
 
 
