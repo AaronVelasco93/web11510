@@ -23,6 +23,21 @@ final class Usuario
         return (int) $pdo->lastInsertId();
     }
 
+    public function listar():array{
+        $consulta ='SELECT id, nombre, correo, creado_en FROM usuarios ORDER BY id DESC';
+        return $this->conexion->obtener()->prepare($consulta)->fetchAll();
+
+    }
+
+    public function actualizarHash(int $id, string $hash):void{
+        $sql='UPDATE usuarios SET password_hash= :hash WHERE id = :id';
+        $consulta = $this->conexion->obtener()->prepare($sql);
+        $consulta->execute([
+            'hash' => $hash,
+            'id' => $id
+        ]);
+    }
+
 
 }
 
